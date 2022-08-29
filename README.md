@@ -51,5 +51,5 @@ $ quit
 ## Authors: 
 Ibukun Obideyi
 
-Victor Pelumi
+Oluleti Victor Pelumi
 
