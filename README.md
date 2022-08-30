@@ -14,21 +14,22 @@ How to start it:
 The command interpreter(shell) is started by running the console.py module:
 
  $./console.py
-
- Usage
-It(coommand interpreter) supports various commands: -create -destroy -all -update -quit
 ```
- create
+``` Usage
+
+It(command interpreter) supports various commands: -create -destroy -all -update -quit
+```
+``` create
 Creates new instance of BaseModel and saves it to the JSON file and prints a unique id:
 
  $ create BaseModel
 ```
- destroy
+``` destroy
 Deletes an instance based on the class name and id(changes are saved in the JSON file):
 
  $ destroy BaseModel 1243-1243-1243
 ```
- all
+``` all
 Prints string representation of all instances:
 
  $ all
@@ -37,13 +38,12 @@ Also prints the string representation of a specified instance:
 
 $ all BaseModel 1243-1243-1243
 ```
-
- update
+``` update
 Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file):
 
 $ update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com"
 ```
- quit
+``` quit
 Quits the console:
 
 $ quit
