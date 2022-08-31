@@ -5,8 +5,19 @@
 import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
-classes = {"BaseModel": BaseModel}
+classes = {
+            'BaseModel': BaseModel, 'User': User, 'State': State,
+            'City': City, 'Amenity': Amenity,
+            'Place': Place, 'Review': Review
+          }
+
 
 class HBNBCommand(cmd.Cmd):
     """Class definition for basic HBNB commands"""
@@ -17,6 +28,7 @@ class HBNBCommand(cmd.Cmd):
 
     # ----- basic HBNB commands -----
     def do_create(self, arg):
+        """Creates the object instance"""
         args = arg.split()
         if args is None or len(args) == 0:
             print('** classs name missing **')
@@ -30,6 +42,7 @@ class HBNBCommand(cmd.Cmd):
         print(Instance.id)
 
     def do_show(self, arg):
+        """Displays the object instance"""
         args = arg.split()
         if args is None or len(args) == 0:
             print("** class missing **")
@@ -43,12 +56,13 @@ class HBNBCommand(cmd.Cmd):
         all_objs = storage.all()
         key = args[0] + '.' + args[1]
         if key not in all_objs:
-                print("** no instance found **")
-                return False
+            print("** no instance found **")
+            return False
         else:
             print(all_objs[key])
 
     def do_update(self, arg):
+        "updates the obj instance"
         args = arg.split()
         all_objs = storage.all()
         if args is None or len(args) == 0:
@@ -75,8 +89,8 @@ class HBNBCommand(cmd.Cmd):
         setattr(all_obj_key, args[2], args[3])
         all_obj_key.save()
 
-
     def do_destroy(self, arg):
+        """ destroys an instance of the obj """
         args = arg.split()
         if args is None or len(args) == 0:
             print("** class name missing **")
@@ -100,6 +114,7 @@ class HBNBCommand(cmd.Cmd):
             Instance.save()
 
     def do_all(self, arg):
+        """Displays all the object instances"""
         result = []
         args = arg.split()
         all_objs = storage.all()

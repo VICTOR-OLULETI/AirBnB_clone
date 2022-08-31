@@ -4,11 +4,21 @@ This program is the File Storage
 """
 import json
 import os
+"""
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+"""
+
 
 class FileStorage:
     """This is the file Storage class"""
     # private class attributes
-    __file_path='file.json'
+    __file_path = 'file.json'
     __objects = {}
 
     # Public instance Methods
@@ -24,22 +34,18 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file(path:__file_path)"""
-         
         filename = FileStorage.__file_path
         temp = {}
         with open(filename, mode="w", encoding="utf-8") as myFile:
             """
             temp.update(FileStorage.__objects)
-            
             for key, val in temp.items():
                 temp[key] = val.to_dict()
-            
             """
             for key in FileStorage.__objects:
                 temp[key] = FileStorage.__objects[key].to_dict()
-        
+
             json.dump(temp, myFile, sort_keys=True, indent=4)
-        
         """
         with open(FileStorage.__file_path, 'w') as f:
             temp = {}
@@ -53,7 +59,19 @@ class FileStorage:
         only if the JSON file exitst
         """
         from models.base_model import BaseModel
-        classes = { 'BaseModel': BaseModel}
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
+
+        classes = {
+                    'BaseModel': BaseModel, 'User': User,
+                    'State': State, 'City': City,
+                    'Amenity': Amenity, 'Place': Place,
+                    'Review': Review
+                  }
         filename = FileStorage.__file_path
         try:
             if os.path.exists(filename):
@@ -61,5 +79,5 @@ class FileStorage:
                     content_out = json.load(myFile)
                     for key, val in content_out.items():
                         self.all()[key] = classes[val['__class__']](**val)
-        except:
+        except ValueError:
             pass

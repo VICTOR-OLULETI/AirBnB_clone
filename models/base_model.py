@@ -4,11 +4,12 @@ This program defines the BaseModel class
 """
 from datetime import datetime
 from models import storage
-#import models
+# import models
 import uuid
 """
 from models.engine.file_storage import FileStorage as storage
 """
+
 
 class BaseModel:
     """
@@ -27,12 +28,10 @@ class BaseModel:
         self.created_at = datetime.now()
         if (kwargs is not None):
             for key, value in kwargs.items():
-                if key == '__class__':
-                    continue
                 if hasattr(self, key):
                     if key == 'created_at':
                         setattr(self, key, self.created_at)
-                    else:
+                    elif (key != '__class__'):
                         setattr(self, key, value)
 
         self.updated_at = datetime.now()
@@ -40,8 +39,12 @@ class BaseModel:
     # Magic Methods
     def __str__(self):
         """String representation of the BaseModel instance"""
+
+        return ("[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__))
+        """
         return ("[BaseModel] ({}) {}".format(self.id, self.__dict__))
-    
+        """
     def save(self):
         """
         Updates the public instance attribute with the current datetime
@@ -49,13 +52,17 @@ class BaseModel:
         self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
+        return ("[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__))
+        """
         return ("[BaseModel] ({}) {}".format(self.id, self.__dict__))
-    
+        """
     def to_dict(self):
         """Return the representation of the instance BaseModel"""
         """
-        self.__dict__.update({
-            '__class__': 'BaseModel', 'created_at': datetime.isoformat(self.created_at), 'updated_at': datetime.isoformat(self.updated_at)
+        self.__dict__.update({'__class__': 'BaseModel',
+            'created_at': datetime.isoforma(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at)
             })
         """
         creating = self.created_at
@@ -65,7 +72,8 @@ class BaseModel:
         if (type(updating) is not str):
             updating = self.updated_at.isoformat()
         self.__dict__.update({
-            '__class__': 'BaseModel', 'created_at': creating, 'updated_at': updating
+            '__class__': self.__class__.__name__,
+            'created_at': creating, 'updated_at': updating
             })
 
         return (self.__dict__)
