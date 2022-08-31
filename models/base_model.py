@@ -3,8 +3,8 @@
 This program defines the BaseModel class
 """
 from datetime import datetime
-# from models import storage
-import models
+from models import storage
+#import models
 import uuid
 """
 from models.engine.file_storage import FileStorage as storage
@@ -47,13 +47,25 @@ class BaseModel:
         Updates the public instance attribute with the current datetime
         """
         self.updated_at = datetime.now()
-        models.storage.new(self)
-        models.storage.save()
+        storage.new(self)
+        storage.save()
         return ("[BaseModel] ({}) {}".format(self.id, self.__dict__))
     
     def to_dict(self):
         """Return the representation of the instance BaseModel"""
+        """
         self.__dict__.update({
             '__class__': 'BaseModel', 'created_at': datetime.isoformat(self.created_at), 'updated_at': datetime.isoformat(self.updated_at)
             })
+        """
+        creating = self.created_at
+        if (type(creating) is not str):
+            creating = self.created_at.isoformat()
+        updating = self.updated_at
+        if (type(updating) is not str):
+            updating = self.updated_at.isoformat()
+        self.__dict__.update({
+            '__class__': 'BaseModel', 'created_at': creating, 'updated_at': updating
+            })
+
         return (self.__dict__)
