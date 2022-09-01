@@ -3,6 +3,7 @@
 
 
 import cmd
+import sys
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -18,15 +19,51 @@ classes = {
             'Place': Place, 'Review': Review
           }
 
-
+methods = ['all', 'count', 'show', 'destroy', 'update']
 class HBNBCommand(cmd.Cmd):
     """Class definition for basic HBNB commands"""
     """ intro = 'Welcome to the HBNB console.
     Type help or ? to listcommands.\n'
     """
     prompt = '(hbnb) '
-
+    if not sys.__stdin__.isatty():
+            prompt = ''
+    # all_objs = storage.all()
     # ----- basic HBNB commands -----
+    def precmd(self, line):
+        """Usage: <class name>.all()"""
+        if not('.' in line and '(' in line and ')' in line):
+            return line
+        arg = ''
+        opt = ''
+        temp = line[:]
+        cls = temp[:temp.find('.')]
+        mth = temp[temp.find('.') + 1: temp.find('(')]
+        arg = temp[temp.find('(') + 1: temp.find(')')]
+        arg = arg.replace('"', '')
+        if mth not in methods:
+            raise Exception
+    
+        command = ' '.join([mth, cls, arg, opt])
+
+        return command
+    def preloop(self):
+        """Prints if isatty is false"""
+        if not sys.__stdin__.isatty():
+            print('(hbnb)')
+
+    '''
+    def postcmd(self, stop, line):
+        """Prints if isatty is false"""
+        if not sys.__stdin__.isatty():
+            print('hbnb ', end='')
+            return stop
+    '''
+    def postloop(self):
+        """prints if isatty is false"""
+        if not sys.__stdin__.isatty():
+            print('(hbnb)')
+
     def do_create(self, arg):
         """Creates the object instance"""
         args = arg.split()
@@ -60,6 +97,16 @@ class HBNBCommand(cmd.Cmd):
             return False
         else:
             print(all_objs[key])
+
+    def do_count(self, arg):
+        """Prints the number of instance of an object"""
+        count = 0
+        all_objs = storage.all()
+        args = arg.split()
+        for obj_id in all_objs.keys():
+            if (obj_id.split('.')[0] == args[0]):
+                count += 1
+        print(count)
 
     def do_update(self, arg):
         "updates the obj instance"
@@ -120,11 +167,18 @@ class HBNBCommand(cmd.Cmd):
         all_objs = storage.all()
         if (len(args) >= 1):
             if (args[0] not in classes):
-                print("** class doesn't exist **")
+                print("** class doesn't exit **")
                 return False
-        for obj_id in all_objs.keys():
-            obj = all_objs[obj_id]
-            result.append(str(obj))
+        if (len(args) == 1):
+            for obj_id in all_objs.keys():
+                if (obj_id.split('.')[0] == args[0]):
+                    obj = all_objs[obj_id]
+                    result.append(str(obj))
+    
+        elif (len(args) == 0):
+            for obj_id in all_objs.keys():
+                obj = all_objs[obj_id]
+                result.append(str(obj))
         print(result)
 
     def do_quit(self, arg):
