@@ -16,4 +16,3 @@ class City(BaseModel):
     def __init__(self, *args, **kwargs):
         """Initializing the User class"""
         super().__init__(*args, **kwargs)
-
