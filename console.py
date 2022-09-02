@@ -20,6 +20,8 @@ classes = {
           }
 
 methods = ['all', 'count', 'show', 'destroy', 'update']
+
+
 class HBNBCommand(cmd.Cmd):
     """Class definition for basic HBNB commands"""
     """ intro = 'Welcome to the HBNB console.
@@ -27,12 +29,13 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = '(hbnb) '
     if not sys.__stdin__.isatty():
-            prompt = ''
+        prompt = ''
     # all_objs = storage.all()
     # ----- basic HBNB commands -----
+
     def precmd(self, line):
         """Usage: <class name>.all()"""
-        if not('.' in line and '(' in line and ')' in line):
+        if not ('.' in line and '(' in line and ')' in line):
             return line
         arg = ''
         opt = ''
@@ -40,13 +43,14 @@ class HBNBCommand(cmd.Cmd):
         cls = temp[:temp.find('.')]
         mth = temp[temp.find('.') + 1: temp.find('(')]
         arg = temp[temp.find('(') + 1: temp.find(')')]
-        arg = arg.replace('"', '')
+        arg = arg.replace('"', '', 2)
         if mth not in methods:
             raise Exception
-    
-        command = ' '.join([mth, cls, arg, opt])
+
+        command = ' '.join([mth, cls, arg])
 
         return command
+
     def preloop(self):
         """Prints if isatty is false"""
         if not sys.__stdin__.isatty():
@@ -68,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
         """Creates the object instance"""
         args = arg.split()
         if args is None or len(args) == 0:
-            print('** classs name missing **')
+            print('** class name missing **')
             return False
         if (args[0] in classes):
             Instance = classes[args[0]]()
@@ -111,6 +115,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         "updates the obj instance"
         args = arg.split()
+        temp = arg.split(',')
         all_objs = storage.all()
         if args is None or len(args) == 0:
             print("** class name missing **")
@@ -122,6 +127,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return False
         all_objs = storage.all()
+        args[1] = args[1].split(',')[0]
         key = args[0] + '.' + args[1]
         if key not in all_objs:
             print("** no instance found **")
@@ -131,10 +137,18 @@ class HBNBCommand(cmd.Cmd):
             return False
         if (len(args) == 3):
             print("** value missing **")
-        all_obj_key = all_objs[key]
-        # all_obj_key[args[2]] = args[3]
-        setattr(all_obj_key, args[2], args[3])
-        all_obj_key.save()
+            return False
+        if (len(args) == 4):
+            all_obj_key = all_objs[key]
+            if (len(temp) == 2):
+                if '{' in temp[1] and type(eval(temp[1])) is dict:
+                    dict_arg = eval(temp[1])
+                    for key, value in dict_arg.items():
+                        setattr(all_obj_key, key, value)
+            else:
+                # all_obj_key[args[2]] = args[3]
+                setattr(all_obj_key, args[2], args[3])
+            all_obj_key.save()
 
     def do_destroy(self, arg):
         """ destroys an instance of the obj """
@@ -158,7 +172,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             Instance = classes[args[0]]()
             del all_objs[key]
-            Instance.save()
+            # Instance.save()
+            storage.save()
 
     def do_all(self, arg):
         """Displays all the object instances"""
@@ -167,14 +182,14 @@ class HBNBCommand(cmd.Cmd):
         all_objs = storage.all()
         if (len(args) >= 1):
             if (args[0] not in classes):
-                print("** class doesn't exit **")
+                print("** class doesn't exist **")
                 return False
         if (len(args) == 1):
             for obj_id in all_objs.keys():
                 if (obj_id.split('.')[0] == args[0]):
                     obj = all_objs[obj_id]
                     result.append(str(obj))
-    
+
         elif (len(args) == 0):
             for obj_id in all_objs.keys():
                 obj = all_objs[obj_id]
