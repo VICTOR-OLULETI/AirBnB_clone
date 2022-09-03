@@ -13,6 +13,7 @@ This project implements the Airbnb clone. It uses the BaseModel class as the sup
 How to start it:
 The command interpreter(shell) is started by running the console.py module:
 
+<<<<<<< HEAD
  $./console.py
 <<<<<<< HEAD
 ```
@@ -31,16 +32,15 @@ It(command interpreter) supports various commands: -create -destroy -all -update
 ``` Usage
 
 <<<<<<< HEAD
- Usage
-It(coommand interpreter) supports various commands: -create -destroy -all -update -quit
-
-``` create
 =======
+```$./console.py
+
+>>>>>>> dcb56fcd46ee89a2ac493f113f4642812e5eda18
+ Usage
 It(command interpreter) supports various commands: -create -destroy -all -update -quit
 ```
 
 ``` create
->>>>>>> 3f1660353b53bea87574cbec04cf7b6e67aa51d8
 Creates new instance of BaseModel and saves it to the JSON file and prints a unique id:
 
  $ create BaseModel
@@ -52,20 +52,17 @@ Creates new instance of BaseModel and saves it to the JSON file and prints a uni
 =======
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ``` destroy
 >>>>>>> 9dafb5e1462d31b0c92180579c54e7b439a7f6c9
 =======
+=======
+>>>>>>> dcb56fcd46ee89a2ac493f113f4642812e5eda18
 ``` destroy
->>>>>>> 3f1660353b53bea87574cbec04cf7b6e67aa51d8
 Deletes an instance based on the class name and id(changes are saved in the JSON file):
 
  $ destroy BaseModel 1243-1243-1243
-<<<<<<< HEAD
-
-
-``` all
-=======
 ```
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -76,7 +73,6 @@ Deletes an instance based on the class name and id(changes are saved in the JSON
 
 >>>>>>> 9dafb5e1462d31b0c92180579c54e7b439a7f6c9
 ``` all
->>>>>>> 3f1660353b53bea87574cbec04cf7b6e67aa51d8
 Prints string representation of all instances:
 
  $ all
@@ -99,10 +95,6 @@ $ all BaseModel 1243-1243-1243
 Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file):
 
 $ update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com"
-<<<<<<< HEAD
-
-``` quit
-=======
 ```
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -113,7 +105,6 @@ $ update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com"
 
 >>>>>>> 9dafb5e1462d31b0c92180579c54e7b439a7f6c9
 ``` quit
->>>>>>> 3f1660353b53bea87574cbec04cf7b6e67aa51d8
 Quits the console:
 
 $ quit
