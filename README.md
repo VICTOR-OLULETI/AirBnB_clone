@@ -14,6 +14,7 @@ How to start it:
 The command interpreter(shell) is started by running the console.py module:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  $./console.py
 <<<<<<< HEAD
 ```
@@ -34,6 +35,9 @@ It(command interpreter) supports various commands: -create -destroy -all -update
 <<<<<<< HEAD
 =======
 ```$./console.py
+=======
+``` $./console.py
+>>>>>>> b979de2bdd388cc7703fe9d4529812db44ac3887
 
 >>>>>>> dcb56fcd46ee89a2ac493f113f4642812e5eda18
  Usage
