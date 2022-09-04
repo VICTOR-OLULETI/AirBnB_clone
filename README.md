@@ -25,30 +25,30 @@ It(command interpreter) supports various commands, which are:
 -quit.
 
     Create:
-Creates new instance of BaseModel and saves it to the JSON file and prints a unique id:
+Creates new instance of BaseModel and saves it to the JSON file and prints a unique id.
 
 ``` $ create BaseModel ```
 
     Destroy:
-Deletes an instance based on the class name and id(changes are saved in the JSON file):
+Deletes an instance based on the class name and id(changes are saved in the JSON file).
 
 ``` $ destroy BaseModel 1243-1243-1243 ```
 
-    All
-Prints string representation of all instances:
+    All:
+Prints string representation of all instances.
 
 ``` $ all ```
-Also prints the string representation of a specified instance:
+Also prints the string representation of a specified instance.
 
 ``` $ all BaseModel 1243-1243-1243 ```
 
-    Update
-Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file):
+    Update:
+Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file).
 
 ``` $ update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com" ```
 
-    Quit
-Quits the console:
+    Quit:
+Quits the console.
 
 ``` $ quit ```
 
