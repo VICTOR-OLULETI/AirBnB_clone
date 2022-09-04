@@ -6,13 +6,14 @@
 
 ## DESCRIPTION
 
-This project implements the Airbnb clone. It uses the BaseModel class as the super class. The datetime, cmd and uuid modules are used in its implementation. The "shell" works in interactive and non-interactive mode. Every directory is a package
+This project implements the Airbnb clone It uses the BaseModel class as the super class. The datetime, cmd and uuid modules are used in its implementation. The "shell" works in interactive and non-interactive mode. Every directory is a package.
 
 ## COMMAND INTERPRETER
 
 How to start it:
 The command interpreter(shell) is started by running the console.py module:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
  $./console.py
@@ -43,10 +44,20 @@ It(command interpreter) supports various commands: -create -destroy -all -update
  Usage
 It(command interpreter) supports various commands: -create -destroy -all -update -quit
 ```
+=======
+    $./console.py
 
-``` create
-Creates new instance of BaseModel and saves it to the JSON file and prints a unique id:
+ Usage:
+It(command interpreter) supports various commands, which are:
+>>>>>>> 2ac548a5a1551126eeb1d4aa106792b7bcb7f548
 
+-create
+-destroy
+-all
+-update
+-quit.
+
+<<<<<<< HEAD
  $ create BaseModel
 ```
 <<<<<<< HEAD
@@ -78,11 +89,25 @@ Deletes an instance based on the class name and id(changes are saved in the JSON
 >>>>>>> 9dafb5e1462d31b0c92180579c54e7b439a7f6c9
 ``` all
 Prints string representation of all instances:
+=======
+``` Create: ```
+Creates new instance of BaseModel and saves it to the JSON file and prints a unique id.
 
- $ all
+    $create BaseModel
 
-Also prints the string representation of a specified instance:
+``` Destroy: ```
+ Deletes an instance based on the class name and id(changes are saved in the JSON file).
 
+    $destroy BaseModel 1243-1243-1243
+>>>>>>> 2ac548a5a1551126eeb1d4aa106792b7bcb7f548
+
+``` All: ```
+ Prints string representation of all instances.
+
+    $all
+ Also prints the string representation of a specified instance.
+
+<<<<<<< HEAD
 $ all BaseModel 1243-1243-1243
 ```
 <<<<<<< HEAD
@@ -110,9 +135,19 @@ $ update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com"
 >>>>>>> 9dafb5e1462d31b0c92180579c54e7b439a7f6c9
 ``` quit
 Quits the console:
+=======
+    $all BaseModel 1243-1243-1243
 
-$ quit
-```
+``` Update: ```
+ Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file).
+
+    $update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com"
+
+    Quit:
+ Quits the console.
+>>>>>>> 2ac548a5a1551126eeb1d4aa106792b7bcb7f548
+
+    $quit
 
 ## Authors
 
