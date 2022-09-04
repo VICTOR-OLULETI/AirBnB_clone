@@ -13,9 +13,9 @@ This project implements the Airbnb clone It uses the BaseModel class as the supe
 How to start it:
 The command interpreter(shell) is started by running the console.py module:
 
-``` $./console.py ```
+    $./console.py
 
-Usage:
+ Usage:
 It(command interpreter) supports various commands, which are:
 
 -create
@@ -24,33 +24,33 @@ It(command interpreter) supports various commands, which are:
 -update
 -quit.
 
-    Create:
+``` Create: ```
 Creates new instance of BaseModel and saves it to the JSON file and prints a unique id.
 
-``` $ create BaseModel ```
+    $create BaseModel
 
-    Destroy:
-Deletes an instance based on the class name and id(changes are saved in the JSON file).
+``` Destroy: ```
+ Deletes an instance based on the class name and id(changes are saved in the JSON file).
 
-``` $ destroy BaseModel 1243-1243-1243 ```
+    $destroy BaseModel 1243-1243-1243
 
-    All:
-Prints string representation of all instances.
+``` All: ```
+ Prints string representation of all instances.
 
-``` $ all ```
-Also prints the string representation of a specified instance.
+    $all
+ Also prints the string representation of a specified instance.
 
-``` $ all BaseModel 1243-1243-1243 ```
+    $all BaseModel 1243-1243-1243
 
-    Update:
-Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file).
+``` Update: ```
+ Updates instances based on the class name and id by adding or updating an attribute(saved to the JSON file).
 
-``` $ update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com" ```
+    $update BaseModel 1243-1243-1243 email "airbnbclone@alxSE.com"
 
     Quit:
-Quits the console.
+ Quits the console.
 
-``` $ quit ```
+    $quit
 
 ## Authors
 
