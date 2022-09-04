@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         """Displays the object instance"""
         args = arg.split()
         if args is None or len(args) == 0:
-            print("** class missing **")
+            print("** class name missing **")
             return False
         if (args[0] not in classes):
             print("** class doesn't exist **")
@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return False
         if (args[0] not in classes):
-            print("** class name missing **")
+            print("** class doesn't exist **")
             return False
         if (len(args) == 1):
             print("** instance id missing **")
@@ -138,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
         if (len(args) == 3):
             print("** value missing **")
             return False
-        if (len(args) == 4):
+        if (len(args) >= 4):
             all_obj_key = all_objs[key]
             if (len(temp) == 2):
                 if '{' in temp[1] and type(eval(temp[1])) is dict:
@@ -160,16 +160,16 @@ class HBNBCommand(cmd.Cmd):
             return False
 
         if (args[0] not in classes):
-            print("**class doesn't exist **")
+            print("** class doesn't exist **")
             return False
 
-        if (args[1] is None):
+        if (len(args) == 1):
             print("** instance id missing **")
             return False
         all_objs = storage.all()
         key = args[0] + '.' + args[1]
         if key not in all_objs:
-            print(" no instance found **")
+            print("** no instance found **")
             return False
         else:
             Instance = classes[args[0]]()
