@@ -140,11 +140,17 @@ class HBNBCommand(cmd.Cmd):
             return False
         if (len(args) >= 4):
             all_obj_key = all_objs[key]
-            if (len(temp) == 2):
-                if '{' in temp[1] and type(eval(temp[1])) is dict:
-                    dict_arg = eval(temp[1])
+            print(temp)
+            print(args)
+            if (len(temp) == 3):
+                temp1 = temp[1]
+                temp2 = temp[2]
+                temp3 = ', '.join([temp1, temp2])
+                if '{' in temp[1] and type(eval(temp3)) is dict:
+                    dict_arg = eval(temp3)
                     for key, value in dict_arg.items():
-                        value = value.replace('"', '', 2)
+                        if (type(value) is str):
+                            value = value.replace('"', '', 2)
                         setattr(all_obj_key, key, value)
             else:
                 # all_obj_key[args[2]] = args[3]
