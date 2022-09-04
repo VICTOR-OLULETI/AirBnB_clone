@@ -7,6 +7,7 @@ from io import StringIO
 from unittest.mock import patch
 from re import search
 
+
 class TestConsole(unittest.TestCase):
     """Class to test the console"""
 
@@ -17,11 +18,10 @@ class TestConsole(unittest.TestCase):
             self.assertEqual('', f.getvalue())
     '''
     def test_help(self):
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help show")
             output = """Displays the object instance\n"""
             self.assertEqual(f.getvalue(), output)
-
 
     def test_destroy(self):
         '''
@@ -40,7 +40,7 @@ class TestConsole(unittest.TestCase):
             self.assertEqual('18', count)
         '''
     def test_help_all(self):
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help all")
             output = """Displays all the object instances\n"""
             self.assertEqual(f.getvalue(), output)
@@ -52,19 +52,19 @@ class TestConsole(unittest.TestCase):
             self.assertEqual(f.getvalue(), output)
 
     def test_help_create(self):
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help create")
             output = """Creates the object instance\n"""
             self.assertEqual(f.getvalue(), output)
 
     def test_help_destroy(self):
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help destroy")
             output = """ destroys an instance of the obj \n"""
             self.assertEqual(f.getvalue(), output)
 
     def test_help_update(self):
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help update")
             output = """updates the obj instance\n"""
             self.assertEqual(f.getvalue(), output)
@@ -72,7 +72,7 @@ class TestConsole(unittest.TestCase):
     def test_create(self):
         regex = r"^[\da-f]{8}-(?:[\da-f]{4}-){3}[\da-f]{12}\n$"
         id = ""
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("create User")
             id = f.getvalue()
             self.assertEqual(f.getvalue(), search(regex, id).string)
@@ -99,18 +99,18 @@ class TestConsole(unittest.TestCase):
 
     def test_show(self):
         id = ""
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("create User")
             id = f.getvalue()[0:-1]
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"show User {id}")
             self.assertIn(id, f.getvalue())
             console.HBNBCommand().onecmd(f"destroy User {id}")
 
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"show User")
             self.assertEqual(f.getvalue(), "** instance id missing **\n")
-        with patch('sys.stdout', new = StringIO()) as f:
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"show User zzz")
             self.assertEqual(f.getvalue(), "** no instance found **\n")
         with patch('sys.stdout', new=StringIO()) as f:
