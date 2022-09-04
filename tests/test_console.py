@@ -115,7 +115,7 @@ class TestConsole(unittest.TestCase):
             self.assertEqual(f.getvalue(), "** no instance found **\n")
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"all")
-            self.assertIn("[User]", f.getvalue())
+            self.assertIn("[BaseModel]", f.getvalue())
 
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"all asd")

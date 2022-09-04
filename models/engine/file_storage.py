@@ -45,7 +45,8 @@ class FileStorage:
             for key in FileStorage.__objects:
                 temp[key] = FileStorage.__objects[key].to_dict()
 
-            json.dump(temp, myFile, sort_keys=True, indent=4)
+            #json.dump(temp, myFile, sort_keys=True, indent=4)
+            json.dump(temp, myFile)
         """
         with open(FileStorage.__file_path, 'w') as f:
             temp = {}
