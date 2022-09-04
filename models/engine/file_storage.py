@@ -36,7 +36,7 @@ class FileStorage:
         """serializes __objects to the JSON file(path:__file_path)"""
         filename = FileStorage.__file_path
         temp = {}
-        with open(filename, mode="w", encoding="utf-8") as myFile:
+        with open(filename, mode="w") as myFile:
             """
             temp.update(FileStorage.__objects)
             for key, val in temp.items():
@@ -45,8 +45,8 @@ class FileStorage:
             for key in FileStorage.__objects:
                 temp[key] = FileStorage.__objects[key].to_dict()
 
-            #json.dump(temp, myFile, sort_keys=True, indent=4)
-            json.dump(temp, myFile)
+            json.dump(temp, myFile, sort_keys=True, indent=4)
+            #json.dump(temp, myFile, sort_keys=True)
         """
         with open(FileStorage.__file_path, 'w') as f:
             temp = {}

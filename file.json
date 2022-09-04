@@ -1,0 +1,19 @@
+{
+    "BaseModel.23429475-86c0-482b-b0a9-a425e7ee9ce8": {
+        "__class__": "BaseModel",
+        "created_at": "2022-09-04T20:13:42.737441",
+        "first_name": "Betty",
+        "id": "23429475-86c0-482b-b0a9-a425e7ee9ce8",
+        "my_number": 89,
+        "name": "My_First_Model",
+        "updated_at": "2022-09-04T21:04:44.434986"
+    },
+    "BaseModel.83ab4139-e3ea-41b5-95b7-fddfe202fb3a": {
+        "__class__": "BaseModel",
+        "created_at": "2022-09-04T20:09:35.464907",
+        "id": "83ab4139-e3ea-41b5-95b7-fddfe202fb3a",
+        "my_number": 89,
+        "name": "My_First_Model",
+        "updated_at": "2022-09-04T20:09:35.464922"
+    }
+}

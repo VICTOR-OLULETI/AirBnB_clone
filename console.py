@@ -144,9 +144,11 @@ class HBNBCommand(cmd.Cmd):
                 if '{' in temp[1] and type(eval(temp[1])) is dict:
                     dict_arg = eval(temp[1])
                     for key, value in dict_arg.items():
+                        value = value.replace('"', '', 2)
                         setattr(all_obj_key, key, value)
             else:
                 # all_obj_key[args[2]] = args[3]
+                args[3] = args[3].replace('"', '', 2)
                 setattr(all_obj_key, args[2], args[3])
             all_obj_key.save()
 
