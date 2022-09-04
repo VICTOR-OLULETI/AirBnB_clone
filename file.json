@@ -1,0 +1,113 @@
+{
+    "Amenity.6a19c629-6f0d-470e-822b-1b92af456202": {
+        "__class__": "Amenity",
+        "created_at": "2022-09-04T21:45:23.618637",
+        "id": "6a19c629-6f0d-470e-822b-1b92af456202",
+        "updated_at": "2022-09-04T21:45:23.618641"
+    },
+    "Amenity.d067e23a-f7b8-452e-95b0-9537c52abb48": {
+        "__class__": "Amenity",
+        "created_at": "2022-09-04T21:13:45.244516",
+        "id": "d067e23a-f7b8-452e-95b0-9537c52abb48",
+        "updated_at": "2022-09-04T21:13:45.244519"
+    },
+    "BaseModel.02a339a7-1312-4ab4-a552-7c22a02d8266": {
+        "__class__": "BaseModel",
+        "created_at": "2022-09-04T21:45:23.639574",
+        "id": "02a339a7-1312-4ab4-a552-7c22a02d8266",
+        "updated_at": "2022-09-04T21:45:23.639578"
+    },
+    "BaseModel.23429475-86c0-482b-b0a9-a425e7ee9ce8": {
+        "__class__": "BaseModel",
+        "created_at": "2022-09-04T20:13:42.737441",
+        "email": "airbnb@gmail.com",
+        "first_name": "Betty",
+        "id": "23429475-86c0-482b-b0a9-a425e7ee9ce8",
+        "my_number": 89,
+        "name": "My_First_Model",
+        "updated_at": "2022-09-04T21:42:24.651457"
+    },
+    "BaseModel.83ab4139-e3ea-41b5-95b7-fddfe202fb3a": {
+        "__class__": "BaseModel",
+        "created_at": "2022-09-04T20:09:35.464907",
+        "id": "83ab4139-e3ea-41b5-95b7-fddfe202fb3a",
+        "my_number": 89,
+        "name": "My_First_Model",
+        "updated_at": "2022-09-04T20:09:35.464922"
+    },
+    "BaseModel.fb26b7cb-9ad9-446d-a965-612779d97e57": {
+        "__class__": "BaseModel",
+        "created_at": "2022-09-04T21:13:45.264672",
+        "id": "fb26b7cb-9ad9-446d-a965-612779d97e57",
+        "updated_at": "2022-09-04T21:13:45.264678"
+    },
+    "City.0c23f0e5-c48f-4f45-aef3-2508da3525b7": {
+        "__class__": "City",
+        "created_at": "2022-09-04T21:13:45.288154",
+        "id": "0c23f0e5-c48f-4f45-aef3-2508da3525b7",
+        "updated_at": "2022-09-04T21:13:45.288158"
+    },
+    "City.35284fd9-98a6-4e91-8cdf-d7e2d9ce44b0": {
+        "__class__": "City",
+        "created_at": "2022-09-04T21:45:23.663432",
+        "id": "35284fd9-98a6-4e91-8cdf-d7e2d9ce44b0",
+        "updated_at": "2022-09-04T21:45:23.663437"
+    },
+    "Place.3231e2ab-de03-420f-b6e8-d1b4d64feb6d": {
+        "__class__": "Place",
+        "created_at": "2022-09-04T21:45:23.681582",
+        "id": "3231e2ab-de03-420f-b6e8-d1b4d64feb6d",
+        "updated_at": "2022-09-04T21:45:23.681585"
+    },
+    "Place.a1ca38b1-c545-4c6c-855d-d93e8bd25fba": {
+        "__class__": "Place",
+        "created_at": "2022-09-04T21:13:45.305463",
+        "id": "a1ca38b1-c545-4c6c-855d-d93e8bd25fba",
+        "updated_at": "2022-09-04T21:13:45.305467"
+    },
+    "Review.4a9c881d-8bd9-468f-85d4-925fece641ae": {
+        "__class__": "Review",
+        "created_at": "2022-09-04T21:13:45.323137",
+        "id": "4a9c881d-8bd9-468f-85d4-925fece641ae",
+        "updated_at": "2022-09-04T21:13:45.323141"
+    },
+    "Review.cbd58b4b-23bc-4b75-8ab0-f97a7a91f885": {
+        "__class__": "Review",
+        "created_at": "2022-09-04T21:45:23.699578",
+        "id": "cbd58b4b-23bc-4b75-8ab0-f97a7a91f885",
+        "updated_at": "2022-09-04T21:45:23.699582"
+    },
+    "State.c8655e1f-439d-4ac9-8148-bb526a2fd513": {
+        "__class__": "State",
+        "created_at": "2022-09-04T21:13:45.339972",
+        "id": "c8655e1f-439d-4ac9-8148-bb526a2fd513",
+        "updated_at": "2022-09-04T21:13:45.339975"
+    },
+    "State.ddef24bd-7ad8-4a08-8ba0-e48e62c384b0": {
+        "__class__": "State",
+        "created_at": "2022-09-04T21:45:23.717892",
+        "id": "ddef24bd-7ad8-4a08-8ba0-e48e62c384b0",
+        "updated_at": "2022-09-04T21:45:23.717896"
+    },
+    "User.44365fcc-145b-48bb-b7fe-7675906df5db": {
+        "__class__": "User",
+        "created_at": "2022-09-04T21:45:23.735476",
+        "id": "44365fcc-145b-48bb-b7fe-7675906df5db",
+        "updated_at": "2022-09-04T21:45:23.735483"
+    },
+    "User.8e93cd3c-329c-4b97-a134-02e7dbd3ea52": {
+        "__class__": "User",
+        "age": 89,
+        "created_at": "2022-09-04T21:49:30.547842",
+        "first_name": "John",
+        "id": "8e93cd3c-329c-4b97-a134-02e7dbd3ea52",
+        "updated_at": "2022-09-04T22:07:49.968432",
+        "{'first_name':": "John,"
+    },
+    "User.a861b581-33c0-4743-af82-89fb209a31e8": {
+        "__class__": "User",
+        "created_at": "2022-09-04T21:13:45.356883",
+        "id": "a861b581-33c0-4743-af82-89fb209a31e8",
+        "updated_at": "2022-09-04T21:13:45.356886"
+    }
+}
