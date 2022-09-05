@@ -6,11 +6,32 @@ import console
 from io import StringIO
 from unittest.mock import patch
 from re import search
+import pycodestyle as pep8
+import inspect
 
 
 class TestConsole(unittest.TestCase):
     """Class to test the console"""
+    def test_pep8_conformance_console(self):
+        """Test that console conforms to PEP8."""
+        pep8s = pep8.StyleGuide(quiet=True)
+        result = pep8s.check_files(['console.py'])
+        self.assertEqual(result.total_errors, 0,
+                        "Found code style errors (and warnings).")
 
+    def test_console_module_docstring(self):
+        """Test for the console.py module docstring"""
+        self.assertIsNot(console.__doc__, None,
+                         "console.py needs a docstring")
+        self.assertTrue(len(console.__doc__) >= 1,
+                        "console.py needs a docstring")
+
+    def test_HBNBCommand_class_docstring(self):
+        """Test for the HBNBCommand class docstring"""
+        self.assertIsNot(console.HBNBCommand.__doc__, None,
+                         "HBNBCommand class needs a docstring")
+        self.assertTrue(len(console.HBNBCommand.__doc__) >= 1,
+                        "HBNBCommand class needs a docstring")
     '''
     def test_count(self):
         with patch('sys.stdout', new = StringIO()) as f:
@@ -22,7 +43,7 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd("help show")
             output = """Displays the object instance\n"""
             self.assertEqual(f.getvalue(), output)
-
+    '''
     def test_destroy(self):
         with patch('sys.stdout', new = StringIO()) as f:
             console.HBNBCommand().onecmd("create User")
@@ -37,7 +58,7 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().precmd("User.count()")
             count = f.getvalue()
             self.assertEqual('', count)
-            
+    '''        
     def test_help_all(self):
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help all")
