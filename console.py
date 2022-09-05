@@ -140,8 +140,6 @@ class HBNBCommand(cmd.Cmd):
             return False
         if (len(args) >= 4):
             all_obj_key = all_objs[key]
-            print(temp)
-            print(args)
             if (len(temp) == 3):
                 temp1 = temp[1]
                 temp2 = temp[2]
@@ -152,9 +150,19 @@ class HBNBCommand(cmd.Cmd):
                         if (type(value) is str):
                             value = value.replace('"', '', 2)
                         setattr(all_obj_key, key, value)
+                else:
+                    if (type(args[3]) is str):
+                        args[3] = args[3].replace('"', '', 2)
+                    if (type(args[2]) is str):
+                        args[2] = args[2].replace('"', '', 2)
+                        args[2] = args[2].split(',')[0]
+                    setattr(all_obj_key, args[2], args[3])
             else:
                 # all_obj_key[args[2]] = args[3]
-                args[3] = args[3].replace('"', '', 2)
+                if (type(args[3]) is str):
+                    args[3] = args[3].replace('"', '', 2)
+                if (type(args[2]) is str):
+                    args[2] = args[2].replace('"', '', 2)
                 setattr(all_obj_key, args[2], args[3])
             all_obj_key.save()
 

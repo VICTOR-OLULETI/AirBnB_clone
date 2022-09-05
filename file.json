@@ -17,6 +17,16 @@
         "id": "75c5a5ce-0169-46f4-9f03-2688d8b187c0",
         "updated_at": "2022-09-05T11:45:45.507989"
     },
+    "User.812fcdd1-2c0d-44af-ab08-0308194a0bdd": {
+        "\"first_name\",": "John",
+        "__class__": "User",
+        "age": "89",
+        "created_at": "2022-09-05T11:48:16.106348",
+        "first_name": "John",
+        "first_name,": "John",
+        "id": "812fcdd1-2c0d-44af-ab08-0308194a0bdd",
+        "updated_at": "2022-09-05T12:02:59.457441"
+    },
     "User.929f5768-623d-45e6-954d-be40ddc73985": {
         "__class__": "User",
         "created_at": "2022-09-05T11:45:45.526367",
