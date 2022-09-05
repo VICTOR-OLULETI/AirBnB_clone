@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""This program is resposible for the cosole/interactive part of the hbnb"""
-
+"""This program is responsible for the console/interactive part of the hbnb"""
 
 import cmd
 import sys
