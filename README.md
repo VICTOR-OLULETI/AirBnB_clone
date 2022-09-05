@@ -10,17 +10,18 @@ This project implements the Airbnb clone. It uses the BaseModel class as the sup
 
 ## COMMAND INTERPRETER
 
+```
 How to start it:
 The command interpreter(shell) is started by running the console.py module:
 
-```
+ ```
  $./console.py
-```
+ ```
  Usage
 It(command interpreter) supports various commands: -create -destroy -all -update -quit
 ```
 
-``` create
+```create
 Creates new instance of BaseModel and saves it to the JSON file and prints a unique id:
 
  $ create BaseModel
