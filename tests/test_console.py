@@ -16,8 +16,26 @@ class TestConsole(unittest.TestCase):
         """Test that console conforms to PEP8."""
         pep8s = pep8.StyleGuide(quiet=True)
         result = pep8s.check_files(['console.py'])
+        output = "Found code style errors (and warnings)."
+        self.assertEqual(result.total_errors, 0, output)
+
+    def test_pep8_conformance_base_test(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(
+            ['tests/test_console.py'])
         self.assertEqual(result.total_errors, 0,
-                        "Found code style errors (and warnings).")
+                         "Found code style errors (and warnings).")
+
+    def test_1_fiel_HBNBCommand_exist(self):
+        """ Check if methods exists """
+        self.assertTrue(hasattr(console.HBNBCommand, "do_quit"))
+        self.assertTrue(hasattr(console.HBNBCommand, "do_EOF"))
+        self.assertTrue(hasattr(console.HBNBCommand, "do_create"))
+        self.assertTrue(hasattr(console.HBNBCommand, "do_show"))
+        self.assertTrue(hasattr(console.HBNBCommand, "do_destroy"))
+        self.assertTrue(hasattr(console.HBNBCommand, "do_update"))
+        self.assertTrue(hasattr(console.HBNBCommand, "do_all"))
+        self.assertTrue(hasattr(console.HBNBCommand, "default"))
 
     def test_console_module_docstring(self):
         """Test for the console.py module docstring"""
@@ -58,7 +76,7 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().precmd("User.count()")
             count = f.getvalue()
             self.assertEqual('', count)
-    '''        
+    '''
     def test_help_all(self):
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help all")
@@ -74,7 +92,7 @@ class TestConsole(unittest.TestCase):
     def test_help_create(self):
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help create")
-            output = """Creates a class of any type\n[Usage]: create <className>\n\n"""
+            output = """Creates a class of any type\n"""
             self.assertEqual(f.getvalue(), output)
 
     def test_help_destroy(self):
