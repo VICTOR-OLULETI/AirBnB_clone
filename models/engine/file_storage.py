@@ -24,7 +24,7 @@ class FileStorage:
     # Public instance Methods
     def all(self):
         """Returns the dictionary"""
-        return (FileStorage.__objects)
+        return (self.__objects)
 
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
@@ -42,9 +42,12 @@ class FileStorage:
             for key, val in temp.items():
                 temp[key] = val.to_dict()
             """
+            """
             for key in FileStorage.__objects:
                 temp[key] = FileStorage.__objects[key].to_dict()
-
+            """
+            for key, value in FileStorage.__objects.items():
+                temp[key] = value.to_dict()
             json.dump(temp, myFile, sort_keys=True, indent=4)
             #json.dump(temp, myFile, sort_keys=True)
         """
@@ -76,9 +79,11 @@ class FileStorage:
         filename = FileStorage.__file_path
         try:
             if os.path.exists(filename):
+                content_out = {}
                 with open(filename, mode="r") as myFile:
                     content_out = json.load(myFile)
                     for key, val in content_out.items():
                         self.all()[key] = classes[val['__class__']](**val)
-        except ValueError:
+        except FileNotFoundError:
             pass
+        # ValueError

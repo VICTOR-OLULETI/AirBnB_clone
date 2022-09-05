@@ -55,7 +55,6 @@ class HBNBCommand(cmd.Cmd):
         """Prints if isatty is false"""
         if not sys.__stdin__.isatty():
             print('(hbnb)')
-
     '''
     def postcmd(self, stop, line):
         """Prints if isatty is false"""
@@ -67,6 +66,7 @@ class HBNBCommand(cmd.Cmd):
         """prints if isatty is false"""
         if not sys.__stdin__.isatty():
             print('(hbnb)')
+        return True
 
     def do_create(self, arg):
         """Creates the object instance"""
