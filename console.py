@@ -216,6 +216,11 @@ class HBNBCommand(cmd.Cmd):
         """overwriting the emptyline method"""
         return False
 
+    def help_create(self):
+        """ Help information for the create method """
+        print("Creates a class of any type")
+        print("[Usage]: create <className>\n")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

@@ -53,7 +53,7 @@ class TestConsole(unittest.TestCase):
     def test_help_create(self):
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help create")
-            output = """Creates the object instance\n"""
+            output = """Creates a class of any type\n[Usage]: create <className>\n\n"""
             self.assertEqual(f.getvalue(), output)
 
     def test_help_destroy(self):
