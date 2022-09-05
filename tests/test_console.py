@@ -129,6 +129,30 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"destroy User {id}")
 
         with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create BaseModel")
+            id = f.getvalue()
+            self.assertEqual(f.getvalue(), search(regex, id).string)
+            console.HBNBCommand().onecmd(f"destroy BaseModel {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create State")
+            id = f.getvalue()
+            self.assertEqual(f.getvalue(), search(regex, id).string)
+            console.HBNBCommand().onecmd(f"destroy State {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Amenity")
+            id = f.getvalue()
+            self.assertEqual(f.getvalue(), search(regex, id).string)
+            console.HBNBCommand().onecmd(f"destroy Amenity {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Review")
+            id = f.getvalue()
+            self.assertEqual(f.getvalue(), search(regex, id).string)
+            console.HBNBCommand().onecmd(f"destroy Review {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("create")
             self.assertEqual(f.getvalue(), "** class name missing **\n")
 
@@ -150,6 +174,54 @@ class TestConsole(unittest.TestCase):
     def test_show(self):
         id = ""
         with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create BaseModel")
+            id = f.getvalue()[0:-1]
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show BaseModel {id}")
+            self.assertIn(id, f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy BaseModel {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create State")
+            id = f.getvalue()[0:-1]
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show State {id}")
+            self.assertIn(id, f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy State {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create City")
+            id = f.getvalue()[0:-1]
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show City {id}")
+            self.assertIn(id, f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy City {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Amenity")
+            id = f.getvalue()[0:-1]
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Amenity {id}")
+            self.assertIn(id, f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Amenity {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Place")
+            id = f.getvalue()[0:-1]
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Place {id}")
+            self.assertIn(id, f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Place {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Review")
+            id = f.getvalue()[0:-1]
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Review {id}")
+            self.assertIn(id, f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Review {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("create User")
             id = f.getvalue()[0:-1]
         with patch('sys.stdout', new=StringIO()) as f:
@@ -161,8 +233,43 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"show User")
             self.assertEqual(f.getvalue(), "** instance id missing **\n")
         with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show State")
+            self.assertEqual(f.getvalue(), "** instance id missing **\n")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show City")
+            self.assertEqual(f.getvalue(), "** instance id missing **\n")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Amenity")
+            self.assertEqual(f.getvalue(), "** instance id missing **\n")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Place")
+            self.assertEqual(f.getvalue(), "** instance id missing **\n")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Review")
+            self.assertEqual(f.getvalue(), "** instance id missing **\n")
+
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"show User zzz")
             self.assertEqual(f.getvalue(), "** no instance found **\n")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show State zzz")
+            self.assertEqual(f.getvalue(), "** no instance found **\n")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show City zzz")
+            self.assertEqual(f.getvalue(), "** no instance found **\n")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Amenity zzz")
+            self.assertEqual(f.getvalue(), "** no instance found **\n")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Place zzz")
+            self.assertEqual(f.getvalue(), "** no instance found **\n")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd(f"show Review zzz")
+            self.assertEqual(f.getvalue(), "** no instance found **\n")
+
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd(f"all")
             self.assertIn("[User]", f.getvalue())
@@ -179,12 +286,123 @@ class TestConsole(unittest.TestCase):
 
     def test_update(self):
         with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create BaseModel")
+            id = f.getvalue()
+            console.HBNBCommand().onecmd(f"update BaseModel {id} name GuyInco")
+            console.HBNBCommand().onecmd(f"show BaseModel {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy BaseModel {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("create User")
             id = f.getvalue()
-            console.HBNBCommand().onecmd(f"update User {id} name GuyIncognito")
+            console.HBNBCommand().onecmd(f"update User {id} name GuyInco")
             console.HBNBCommand().onecmd(f"show User {id}")
             self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy User {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create State")
+            id = f.getvalue()
+            console.HBNBCommand().onecmd(f"update State {id} name GuyInco")
+            console.HBNBCommand().onecmd(f"show State {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy State {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create City")
+            id = f.getvalue()
+            console.HBNBCommand().onecmd(f"update City {id} name GuyInco")
+            console.HBNBCommand().onecmd(f"show City {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy City {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Amenity")
+            id = f.getvalue()
+            console.HBNBCommand().onecmd(f"update Amenity {id} name GuyInco")
+            console.HBNBCommand().onecmd(f"show Amenity {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Amenity {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Place")
+            id = f.getvalue()
+            console.HBNBCommand().onecmd(f"update Place {id} name GuyInco")
+            console.HBNBCommand().onecmd(f"show Place {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Place {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Review")
+            id = f.getvalue()
+            console.HBNBCommand().onecmd(f"update Review {id} name GuyInco")
+            console.HBNBCommand().onecmd(f"show Review {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Review {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create BaseModel")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"BaseModel.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show BaseModel {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy BaseModel {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create User")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"User.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show User {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy User {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create State")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"State.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show State {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy State {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create City")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"City.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show City {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy City {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Amenity")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"Amenity.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show Amenity {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Amenity {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Place")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"Place.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show Place {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Place {id}")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("create Review")
+            id = f.getvalue()
+            dict_valu = "{'name': GuyIncognito, 'age':98}"
+            console.HBNBCommand().onecmd(f"Review.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show Review {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"destroy Review {id}")
 
     def test_6_file_HBNBCommand_task_4(self):
         with patch('sys.stdout', new=StringIO()) as f:
