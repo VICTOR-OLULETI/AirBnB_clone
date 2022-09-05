@@ -348,6 +348,9 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"BaseModel.update({id}," + dict_valu)
             console.HBNBCommand().onecmd(f"show BaseModel {id}")
             self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"BaseModel.update({id}, 'name' 'gu'")
+            console.HBNBCommand().onecmd(f"show BaseModel {id}")
+            self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy BaseModel {id}")
 
         with patch('sys.stdout', new=StringIO()) as f:
@@ -355,6 +358,9 @@ class TestConsole(unittest.TestCase):
             id = f.getvalue()
             dict_valu = "{'name': GuyIncognito, 'age':98}"
             console.HBNBCommand().onecmd(f"User.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show User {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"User.update({id}, 'name' 'guy'")
             console.HBNBCommand().onecmd(f"show User {id}")
             self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy User {id}")
@@ -366,6 +372,9 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"State.update({id}," + dict_valu)
             console.HBNBCommand().onecmd(f"show State {id}")
             self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"State.update({id}, 'name' 'guy'")
+            console.HBNBCommand().onecmd(f"show State {id}")
+            self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy State {id}")
 
         with patch('sys.stdout', new=StringIO()) as f:
@@ -373,6 +382,9 @@ class TestConsole(unittest.TestCase):
             id = f.getvalue()
             dict_valu = "{'name': GuyIncognito, 'age':98}"
             console.HBNBCommand().onecmd(f"City.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show City {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"City.update({id}, 'name' 'guy'")
             console.HBNBCommand().onecmd(f"show City {id}")
             self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy City {id}")
@@ -384,6 +396,9 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"Amenity.update({id}," + dict_valu)
             console.HBNBCommand().onecmd(f"show Amenity {id}")
             self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"Amenity.update({id}, 'name' 'guy'")
+            console.HBNBCommand().onecmd(f"show Amenity {id}")
+            self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy Amenity {id}")
 
         with patch('sys.stdout', new=StringIO()) as f:
@@ -391,6 +406,9 @@ class TestConsole(unittest.TestCase):
             id = f.getvalue()
             dict_valu = "{'name': GuyIncognito, 'age':98}"
             console.HBNBCommand().onecmd(f"Place.update({id}," + dict_valu)
+            console.HBNBCommand().onecmd(f"show Place {id}")
+            self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"Place.update({id}, 'name' 'guy'")
             console.HBNBCommand().onecmd(f"show Place {id}")
             self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy Place {id}")
@@ -402,9 +420,14 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"Review.update({id}," + dict_valu)
             console.HBNBCommand().onecmd(f"show Review {id}")
             self.assertIn("name", f.getvalue())
+            console.HBNBCommand().onecmd(f"Review.update({id}, 'name' 'guy'")
+            console.HBNBCommand().onecmd(f"show Review {id}")
+            self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy Review {id}")
 
     def test_6_file_HBNBCommand_task_4(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("BaseModel.all()")
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("Place.all()")
         with patch('sys.stdout', new=StringIO()) as f:
@@ -419,6 +442,8 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd("User.all()")
 
     def test_7_file_HBNBCommand_task_5(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("BaseModel.count()")
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("Place.count()")
         with patch('sys.stdout', new=StringIO()) as f:
