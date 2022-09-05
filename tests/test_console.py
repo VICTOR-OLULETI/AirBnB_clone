@@ -22,7 +22,7 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd("help show")
             output = """Displays the object instance\n"""
             self.assertEqual(f.getvalue(), output)
-    '''
+
     def test_destroy(self):
         with patch('sys.stdout', new = StringIO()) as f:
             console.HBNBCommand().onecmd("create User")
@@ -30,14 +30,14 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new = StringIO()) as f:
             console.HBNBCommand().precmd("User.count()")
             count = f.getvalue()
-            self.assertEqual(count, '19')
+            self.assertEqual(count, '')
         with patch('sys.stdout', new = StringIO()) as f:
             console.HBNBCommand().onecmd(f"destroy User {id}")
         with patch('sys.stdout', new = StringIO()) as f:
             console.HBNBCommand().precmd("User.count()")
             count = f.getvalue()
-            self.assertEqual('18', count)
-    '''
+            self.assertEqual('', count)
+            
     def test_help_all(self):
         with patch('sys.stdout', new=StringIO()) as f:
             console.HBNBCommand().onecmd("help all")
