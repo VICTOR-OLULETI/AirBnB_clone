@@ -42,12 +42,12 @@ class FileStorage:
             for key, val in temp.items():
                 temp[key] = val.to_dict()
             """
-            """
             for key in FileStorage.__objects:
                 temp[key] = FileStorage.__objects[key].to_dict()
             """
             for key, value in FileStorage.__objects.items():
                 temp[key] = value.to_dict()
+            """
             json.dump(temp, myFile, sort_keys=True, indent=4)
             #json.dump(temp, myFile, sort_keys=True)
         """
