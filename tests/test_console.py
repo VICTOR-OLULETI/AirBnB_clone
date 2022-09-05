@@ -50,6 +50,18 @@ class TestConsole(unittest.TestCase):
                          "HBNBCommand class needs a docstring")
         self.assertTrue(len(console.HBNBCommand.__doc__) >= 1,
                         "HBNBCommand class needs a docstring")
+
+    def test_2_file_HBNBCommand_doc(self):
+        """ Check the documentation """
+        self.assertIsNotNone(console.HBNBCommand.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_quit.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_EOF.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_create.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_show.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_destroy.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_update.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.do_all.__doc__)
+        self.assertIsNotNone(console.HBNBCommand.default.__doc__)
     '''
     def test_count(self):
         with patch('sys.stdout', new = StringIO()) as f:
@@ -173,3 +185,31 @@ class TestConsole(unittest.TestCase):
             console.HBNBCommand().onecmd(f"show User {id}")
             self.assertIn("name", f.getvalue())
             console.HBNBCommand().onecmd(f"destroy User {id}")
+
+    def test_6_file_HBNBCommand_task_4(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("Place.all()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("State.all()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("City.all()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("Amenity.all()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("Reivew.all()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("User.all()")
+
+    def test_7_file_HBNBCommand_task_5(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("Place.count()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("State.count()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("City.count()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("Amenity.count()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("Reivew.count()")
+        with patch('sys.stdout', new=StringIO()) as f:
+            console.HBNBCommand().onecmd("User.count()")
