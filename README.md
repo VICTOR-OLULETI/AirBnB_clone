@@ -2,9 +2,9 @@
 
 ![airbnb](https://user-images.githubusercontent.com/83606182/183284424-59181430-8fcb-46ed-bf00-8333c1d89c13.png)
 
-## Built using python language
-
 ## DESCRIPTION
+
+## Built using python language
 
 <center> <h1>HBNB - The Console</h1> </center>
 
