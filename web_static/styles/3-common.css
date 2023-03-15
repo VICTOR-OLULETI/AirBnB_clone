@@ -1,8 +1,10 @@
-body{
+body {
     margin: 0px;
-    padding:0%;
-    color: #484848;
+    padding:0px;
+    color:#484848;
     font-size: 14px;
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-
+    background-image: url("/images/icon.png") no-repeat;
 }
+
+
